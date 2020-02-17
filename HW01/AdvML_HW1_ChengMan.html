@@ -13158,7 +13158,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -13180,7 +13180,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[1]:</div>
 
 
 
@@ -14803,7 +14803,7 @@ TkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set up training and test data</span>
@@ -15187,11 +15187,11 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Check the shape of y_train</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">y_train</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -15204,13 +15204,13 @@ AAAASUVORK5CYII=
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[0]:</div>
+    <div class="prompt output_prompt">Out[49]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(117, 5)</pre>
+<pre>(117,)</pre>
 </div>
 
 </div>
@@ -15235,7 +15235,7 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[94]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Using Grid Search to Find Better Parameters</span>
@@ -15249,9 +15249,8 @@ AAAASUVORK5CYII=
 	<span class="c1"># create model</span>
   <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
   <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-  <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
-  <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
-  
+  <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+
   <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
   
   <span class="n">ada</span> <span class="o">=</span> <span class="n">Adadelta</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
@@ -15266,7 +15265,7 @@ AAAASUVORK5CYII=
 <span class="n">model</span> <span class="o">=</span> <span class="n">KerasClassifier</span><span class="p">(</span><span class="n">build_fn</span><span class="o">=</span><span class="n">create_model</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="c1"># define the grid search parameters</span>
 <span class="n">batch_size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
-<span class="n">epochs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">1300</span><span class="p">]</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">1300</span><span class="p">]</span>
 <span class="n">param_grid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">)</span>
 <span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">grid_result</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">prediction_input_preprocessor</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="n">y_train</span><span class="p">)</span>
@@ -15293,16 +15292,16 @@ AAAASUVORK5CYII=
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Best: 0.529915 using {&#39;batch_size&#39;: 60, &#39;epochs&#39;: 700}
-0.487179 (0.036262) with: {&#39;batch_size&#39;: 60, &#39;epochs&#39;: 300}
-0.529915 (0.031980) with: {&#39;batch_size&#39;: 60, &#39;epochs&#39;: 700}
-0.495727 (0.012087) with: {&#39;batch_size&#39;: 60, &#39;epochs&#39;: 1300}
-0.435897 (0.036262) with: {&#39;batch_size&#39;: 80, &#39;epochs&#39;: 300}
-0.512821 (0.075485) with: {&#39;batch_size&#39;: 80, &#39;epochs&#39;: 700}
-0.512821 (0.020936) with: {&#39;batch_size&#39;: 80, &#39;epochs&#39;: 1300}
-0.427350 (0.084611) with: {&#39;batch_size&#39;: 100, &#39;epochs&#39;: 300}
-0.521368 (0.063960) with: {&#39;batch_size&#39;: 100, &#39;epochs&#39;: 700}
-0.478632 (0.024175) with: {&#39;batch_size&#39;: 100, &#39;epochs&#39;: 1300}
+<pre>Best: 0.504274 using {&#39;batch_size&#39;: 60, &#39;epochs&#39;: 500}
+0.504274 (0.024175) with: {&#39;batch_size&#39;: 60, &#39;epochs&#39;: 500}
+0.444444 (0.048349) with: {&#39;batch_size&#39;: 60, &#39;epochs&#39;: 700}
+0.487179 (0.041872) with: {&#39;batch_size&#39;: 60, &#39;epochs&#39;: 1300}
+0.452991 (0.063960) with: {&#39;batch_size&#39;: 80, &#39;epochs&#39;: 500}
+0.470085 (0.043581) with: {&#39;batch_size&#39;: 80, &#39;epochs&#39;: 700}
+0.452991 (0.067299) with: {&#39;batch_size&#39;: 80, &#39;epochs&#39;: 1300}
+0.435897 (0.055391) with: {&#39;batch_size&#39;: 100, &#39;epochs&#39;: 500}
+0.478632 (0.048349) with: {&#39;batch_size&#39;: 100, &#39;epochs&#39;: 700}
+0.427350 (0.031980) with: {&#39;batch_size&#39;: 100, &#39;epochs&#39;: 1300}
 </pre>
 </div>
 </div>
@@ -15313,7 +15312,7 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[104]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.models</span> <span class="k">import</span> <span class="n">Sequential</span>
@@ -15325,8 +15324,8 @@ AAAASUVORK5CYII=
 	<span class="c1"># create model</span>
   <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
   <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-  <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
-  <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+  <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+
   <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
   
   <span class="n">ada</span> <span class="o">=</span> <span class="n">Adadelta</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
@@ -15338,7 +15337,7 @@ AAAASUVORK5CYII=
 <span class="n">seed</span> <span class="o">=</span> <span class="mi">15</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 
-<span class="n">model1</span> <span class="o">=</span> <span class="n">KerasClassifier</span><span class="p">(</span><span class="n">build_fn</span><span class="o">=</span><span class="n">create_model</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span> <span class="p">)</span>
+<span class="n">model1</span> <span class="o">=</span> <span class="n">KerasClassifier</span><span class="p">(</span><span class="n">build_fn</span><span class="o">=</span><span class="n">create_model</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span> <span class="p">)</span>
 <span class="n">model1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">prediction_input_preprocessor</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 
@@ -15352,13 +15351,13 @@ AAAASUVORK5CYII=
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[104]:</div>
+    <div class="prompt output_prompt">Out[61]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7efe65146b70&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f4f201eb940&gt;</pre>
 </div>
 
 </div>
@@ -15424,7 +15423,7 @@ AAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[105]:</div>
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_pred</span><span class="o">=</span><span class="n">model1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">prediction_input_preprocessor</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
@@ -15443,7 +15442,7 @@ AAAASUVORK5CYII=
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[105]:</div>
+    <div class="prompt output_prompt">Out[62]:</div>
 
 
 
@@ -15480,9 +15479,9 @@ AAAASUVORK5CYII=
     <tr>
       <th>0</th>
       <td>0.717949</td>
-      <td>0.713796</td>
-      <td>0.719444</td>
-      <td>0.725</td>
+      <td>0.717857</td>
+      <td>0.717857</td>
+      <td>0.727778</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -15553,7 +15552,7 @@ The learning rate is a tuning parameter in an optimization algorithm that determ
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Convert keras model object to onnx and then save it to .onnx file</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
-<span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model1</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span> <span class="s2">&quot;3sc_keras_model.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span> <span class="p">)</span> <span class="p">)</span>
+<span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model1</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span> <span class="s2">&quot;3sc_keras_model_r.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span> <span class="p">)</span> <span class="p">)</span>
 </pre></div>
 
     </div>
@@ -15588,7 +15587,7 @@ The learning rate is a tuning parameter in an optimization algorithm that determ
 <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;Man7mancheng&quot;</span>
 
 <span class="n">region</span><span class="o">=</span><span class="s1">&#39;us-east-1&#39;</span>
-<span class="n">model_filepath</span><span class="o">=</span><span class="s2">&quot;3sc_keras_model.pkl&quot;</span>   
+<span class="n">model_filepath</span><span class="o">=</span><span class="s2">&quot;3sc_keras_model_r.pkl&quot;</span>   
 <span class="n">preprocessor_filepath</span><span class="o">=</span><span class="s2">&quot;preprocessor.pkl&quot;</span>
 <span class="n">preprocessor</span><span class="o">=</span><span class="s2">&quot;TRUE&quot;</span>
 
@@ -15625,7 +15624,7 @@ The learning rate is a tuning parameter in an optimization algorithm that determ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Submit your model using submit_model() function</span>
@@ -15636,26 +15635,6 @@ The learning rate is a tuning parameter in an optimization algorithm that determ
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&#34;3sc_keras_model.pkl&#34; has been loaded to version 70 of your prediction API.
-This version of the model will be used by your prediction api for all future predictions automatically.
-If you wish to use an older version of the model, please reference the getting started guide at aimodelshare.com.
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -15678,7 +15657,7 @@ If you wish to use an older version of the model, please reference the getting s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">aimodelshare</span> <span class="k">as</span> <span class="nn">ai</span>
@@ -15755,7 +15734,22 @@ If you wish to use an older version of the model, please reference the getting s
   </thead>
   <tbody>
     <tr>
-      <th>13</th>
+      <th>61</th>
+      <td>0.717949</td>
+      <td>0.717857</td>
+      <td>0.717857</td>
+      <td>0.727778</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3scman</td>
+      <td>85</td>
+      <td>2.333333</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
       <td>0.717949</td>
       <td>0.713796</td>
       <td>0.719444</td>
@@ -15766,11 +15760,11 @@ If you wish to use an older version of the model, please reference the getting s
       <td>0</td>
       <td>3scman</td>
       <td>70</td>
-      <td>1.666667</td>
+      <td>2.333333</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>49</th>
       <td>0.666667</td>
       <td>0.675975</td>
       <td>0.754286</td>
@@ -15781,11 +15775,11 @@ If you wish to use an older version of the model, please reference the getting s
       <td>0</td>
       <td>dhoward97</td>
       <td>69</td>
-      <td>2.333333</td>
+      <td>2.666667</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>42</th>
+      <th>80</th>
       <td>0.692308</td>
       <td>0.693333</td>
       <td>0.700397</td>
@@ -15796,37 +15790,22 @@ If you wish to use an older version of the model, please reference the getting s
       <td>0</td>
       <td>3scman</td>
       <td>62</td>
-      <td>3.000000</td>
+      <td>4.000000</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>56</th>
+      <th>0</th>
       <td>0.641026</td>
-      <td>0.646886</td>
-      <td>0.738333</td>
-      <td>0.680952</td>
+      <td>0.642381</td>
+      <td>0.743590</td>
+      <td>0.682273</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>dhoward97</td>
-      <td>68</td>
-      <td>3.333333</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>0.589744</td>
-      <td>0.594805</td>
-      <td>0.714286</td>
-      <td>0.640952</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>dhoward97</td>
-      <td>67</td>
-      <td>4.666667</td>
+      <td>SUN-Wenjun</td>
+      <td>83</td>
+      <td>4.000000</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -15845,7 +15824,7 @@ If you wish to use an older version of the model, please reference the getting s
       <td>...</td>
     </tr>
     <tr>
-      <th>30</th>
+      <th>73</th>
       <td>0.384615</td>
       <td>0.343861</td>
       <td>0.348889</td>
@@ -15856,11 +15835,11 @@ If you wish to use an older version of the model, please reference the getting s
       <td>0</td>
       <td>zivzach</td>
       <td>50</td>
-      <td>20.000000</td>
+      <td>29.333333</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>46</th>
+      <th>22</th>
       <td>0.384615</td>
       <td>0.303896</td>
       <td>0.340260</td>
@@ -15871,11 +15850,11 @@ If you wish to use an older version of the model, please reference the getting s
       <td>0</td>
       <td>abhay_07</td>
       <td>18</td>
-      <td>21.000000</td>
+      <td>30.333333</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>32</th>
+      <th>5</th>
       <td>0.333333</td>
       <td>0.337698</td>
       <td>0.385556</td>
@@ -15886,11 +15865,11 @@ If you wish to use an older version of the model, please reference the getting s
       <td>0</td>
       <td>username2</td>
       <td>6</td>
-      <td>20.333333</td>
+      <td>29.666667</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>55</th>
+      <th>38</th>
       <td>0.333333</td>
       <td>0.337698</td>
       <td>0.385556</td>
@@ -15901,11 +15880,11 @@ If you wish to use an older version of the model, please reference the getting s
       <td>0</td>
       <td>username2</td>
       <td>3</td>
-      <td>20.333333</td>
+      <td>29.666667</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>49</th>
+      <th>84</th>
       <td>0.333333</td>
       <td>0.337698</td>
       <td>0.385556</td>
@@ -15916,12 +15895,12 @@ If you wish to use an older version of the model, please reference the getting s
       <td>0</td>
       <td>username2</td>
       <td>2</td>
-      <td>20.333333</td>
+      <td>29.666667</td>
       <td>1.0</td>
     </tr>
   </tbody>
 </table>
-<p>70 rows × 12 columns</p>
+<p>85 rows × 12 columns</p>
 </div>
 </div>
 
@@ -15947,7 +15926,7 @@ If you wish to use an older version of the model, please reference the getting s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="k">import</span> <span class="n">KNeighborsClassifier</span>
@@ -16106,7 +16085,7 @@ test-set score: 0.590
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[131]:</div>
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">RandomForestClassifier</span>
@@ -16157,10 +16136,12 @@ Best Parameter: {&#39;max_depth&#39;: 11, &#39;n_estimators&#39;: 100}
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[132]:</div>
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model3</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">11</span> <span class="p">,</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
+<span class="n">model3</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">11</span> <span class="p">,</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
 <span class="n">model3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">prediction_input_preprocessor</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="n">y_pred</span><span class="o">=</span><span class="n">model3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">prediction_input_preprocessor</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
@@ -16179,7 +16160,7 @@ Best Parameter: {&#39;max_depth&#39;: 11, &#39;n_estimators&#39;: 100}
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[132]:</div>
+    <div class="prompt output_prompt">Out[75]:</div>
 
 
 
@@ -16263,7 +16244,7 @@ Best Parameter: {&#39;max_depth&#39;: 11, &#39;n_estimators&#39;: 100}
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Github-Repo-url">Github Repo url<a class="anchor-link" href="#Github-Repo-url">&#182;</a></h2><hr>
-<p>My public Github Repo url for this report and it <code>.ipynb</code> file is: <strong><a href="https://github.com/3scman/Adv_ML_Repo_ChengMan/tree/master/HW01">https://github.com/3scman/Adv_ML_Repo_ChengMan/tree/master/HW01</a></strong>.</p>
+<p>My public Github Repo url for this report and it <code>.ipynb</code> file is: <a href="https://github.com/3scman/Adv_ML_Repo_ChengMan/tree/master/HW01">https://github.com/3scman/Adv_ML_Repo_ChengMan/tree/master/HW01</a>.</p>
 
 </div>
 </div>
